@@ -5,15 +5,10 @@ name = "pypi"
 
 [packages]
 django = "*"
-django-ckeditor = "*"
-pillow = "*"
-pylint = "*"
-pylint-django = "*"
-pylint-celery = "*"
 djangorestframework = "*"
-drf-yasg = "*"
 djangorestframework-simplejwt = "*"
 django-filter = "*"
+drf-yasg = "*"
 
 [dev-packages]
 
