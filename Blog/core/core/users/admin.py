@@ -5,4 +5,4 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
-    pass
+    pass 
