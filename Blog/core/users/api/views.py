@@ -29,9 +29,16 @@ class UserView(APIView):
 class UserUpdateView(APIView):
     permission_classes = [IsAuthenticated]
     
+    def get(self, request):
+        serializer = UserSerializer(request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
     # actualizar los datos del usuario
     def put(self, request):
-        serializer = UserUpdateSerializer(request.user, data=request.data)
+        # verificar si el usuario existe
+        user = User.objects.get(id=request.user.id)
+        serializer = UserUpdateSerializer(user, request.data)
+        
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
