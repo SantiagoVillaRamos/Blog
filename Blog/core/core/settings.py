@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     
     'rest_framework',
     'drf_yasg',
+    'rest_framework_simplejwt',
     'users',
 ]
 
@@ -103,6 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -114,11 +118,24 @@ USE_I18N = True
 
 USE_TZ = True
 
+# rest framework configuracion para la autenticacion JWT
+# https://www.django-rest-framework.org/api-guide/authentication/#json-web-token-authentication
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+       
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# configuracion de archivos estaticos
+STATIC_ROOT = './static/'
 
 # Usuario personalizado
 AUTH_USER_MODEL = 'users.User'
