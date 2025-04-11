@@ -120,6 +120,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = './static/'
+
 # Usuario personalizado
 AUTH_USER_MODEL = 'users.User'
 
