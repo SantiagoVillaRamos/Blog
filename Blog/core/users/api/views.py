@@ -8,6 +8,7 @@ from rest_framework.decorators import api_view, permission_classes
 
 # clase encargada de registrar un nuevo usuario
 class RegisterView(APIView):
+    
     def post(self, request):
         serializer = UserRegisterSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
@@ -18,6 +19,7 @@ class RegisterView(APIView):
 
 # clase encargada de devolver los datos del usuario  
 class UserView(APIView):
+    
     permission_classes = [IsAuthenticated]
     
     # devolver los datos del usuario
@@ -27,6 +29,7 @@ class UserView(APIView):
     
 # clase de actualizar los datos del usuario
 class UserUpdateView(APIView):
+    
     permission_classes = [IsAuthenticated]
     
     def get(self, request):
