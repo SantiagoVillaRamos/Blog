@@ -6,5 +6,10 @@ class Categorie(models.Model):
     slug = models.SlugField(max_length=255, unique=True, verbose_name='Slug')
     publised = models.BooleanField(default=True, verbose_name='Publicado')
     
+    class Meta:
+        verbose_name = 'Categoría'
+        verbose_name_plural = 'Categorías'
+        ordering = ('-publised', 'title')
+    
     def __str__(self):
         return self.title
